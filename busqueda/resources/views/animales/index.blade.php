@@ -38,7 +38,7 @@
     </tbody>
     <tfoot>
         <tr>
-            <td colspan="4"> {{$animales->links()}}</td>
+            <td colspan="4"> {{$animales->appends(['busqueda'=>$busqueda])}}</td>
         </tr>
     </tfoot>
 </table>

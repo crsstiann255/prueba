@@ -17,6 +17,7 @@ class AnimalesController extends Controller
             ->paginate(2);
         $data = [
             'animales'=>$animales,
+            'busqueda' =>$busqueda,
         ];
         return view('animales.index', $data);
     }
