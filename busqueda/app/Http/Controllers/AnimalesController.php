@@ -52,9 +52,14 @@ class AnimalesController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(string $id)
+    public function edit($id)
     {
-        return $id;
+        $animal = animal::find ($id);
+        $data = [
+            'animal'=>$animal,
+        
+        ];
+        return view('animales.edit',$data);
     }
 
     /**
@@ -62,7 +67,12 @@ class AnimalesController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        $animal = animal::find($id);
+        $animal->especie= $request->especie;
+        $animal->nombre= $request->nombre;
+        $animal->save();
+        return redirect()->route('animales.index');
+
     }
 
     /**
